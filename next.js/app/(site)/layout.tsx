@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "../globals.css";
+import { getPages } from "@/sanity/sanity-utils";
 
 export const metadata = {
   title: "My Awesome App",
@@ -11,6 +12,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pages = await getPages();
   return (
     <html lang="en">
       <body className="max-w-3xl mx-auto py-10">
