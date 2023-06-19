@@ -12,6 +12,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // get all of our pages
   const pages = await getPages();
   return (
     <html lang="en">
@@ -23,6 +24,13 @@ export default async function RootLayout({
           >
             Yana
           </Link>
+          <div>
+            {pages.map((page) => (
+              <Link href={`/${page.slug}`} key={page._id}>
+                {page.title}
+              </Link>
+            ))}
+          </div>
         </header>
         <main className="py-20">{children}</main>
       </body>
