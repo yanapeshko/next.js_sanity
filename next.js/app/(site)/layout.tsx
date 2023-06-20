@@ -24,9 +24,13 @@ export default async function RootLayout({
           >
             Yana
           </Link>
-          <div>
+          <div className="flex items-center gap-5 text-sm text-gray-600">
             {pages.map((page) => (
-              <Link href={`/${page.slug}`} key={page._id}>
+              <Link
+                href={`/${page.slug}`}
+                key={page._id}
+                className="hover:underline"
+              >
                 {page.title}
               </Link>
             ))}
